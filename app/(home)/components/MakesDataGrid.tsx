@@ -1,11 +1,13 @@
 "use client";
 
 import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
+import { makesAndModels } from "../../../data/makesAndModels";
 
-const rows: GridRowsProp = [
-  { id: 1, make: "Honda", modelsCount: 100 },
-  { id: 2, make: "Toyota", modelsCount: 150 },
-];
+const rows: GridRowsProp = makesAndModels.map(({ id, name, models }) => ({
+  id,
+  make: name,
+  modelsCount: models.length,
+}));
 
 const columns: GridColDef[] = [
   { field: "make", headerName: "Make", width: 200 },
